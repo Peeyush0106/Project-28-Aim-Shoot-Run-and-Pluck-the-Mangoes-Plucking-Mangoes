@@ -11,7 +11,7 @@ var boy, ground;
 var boyImage;
 
 function preload() {
-	// boyImage = loadImage("images/boy.png");
+	boyImage = loadImage("images/boy.png");
 }
 
 function setup() {
@@ -39,7 +39,6 @@ function setup() {
 function draw() {
 	background(200);
 	rectMode(CENTER);
-	// boy.display(boyImage);
-	boy.display();
+	boy.display(boyImage);
 	ground.display();
 }
