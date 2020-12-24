@@ -41,6 +41,8 @@ function setup() {
 	topEdge = new Edge(canvasWidth / 2, 0 - (topAndBottom_EdgesHeight / 2), canvasWidth, topAndBottom_EdgesHeight);
 	bottomEdge = new Edge(canvasWidth / 2, canvasHeight + (topAndBottom_EdgesHeight / 2), canvasWidth, topAndBottom_EdgesHeight);
 
+	// var test = Bodies.polygon(400, 200, 4, 30, { isStatic: true });
+
 	boy = new Boy(195, 285);
 
 	// pos1 = { x: 612, y: 92 };
@@ -63,7 +65,7 @@ function setup() {
 	// console.log(mango1.x);
 	console.log(mango1Pos);
 
-	stone = new Stone(150, 320, 12.5);
+	stone = new Stone(150, 320, 14.5);
 
 	shooter = new Chain(stone.body, { x: boy.x - 30, y: boy.y - 30 });
 
@@ -85,19 +87,23 @@ function draw() {
 	// if (shooter.chain.bodyA != null) {
 	// 	World.remove(world, shooter.chain);
 	// }
-	if (shooter.chain.bodyA === null) {
-		World.add(world, ground);
-		groundAddedToWorld = true;
-	}
-	boy.display(boyImage, null, boy.body.position.x, boy.body.position.y);
+	// rect();
+	// if (shooter.chain.bodyA === null) {
+	// 	World.add(world, ground);
+	// 	groundAddedToWorld = true;
+	// }
+	
+	// if (groundAddedToWorld) {
+	// 	console.log("Ground has been added to the World");
+	// }
 
-	if (groundAddedToWorld) {
-		console.log("Ground has been added to the World");
-	}
-
+	push();
 	fill("white");
 	text("MouseX: " + mouseX, 500, 250);
 	text("MouseY: " + mouseY, 500, 350);
+	pop();
+
+	boy.display(boyImage, null, boy.body.position.x, boy.body.position.y);
 	ground.display();
 	tree.display();
 	shooter.display();
